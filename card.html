@@ -38,7 +38,20 @@
     ...
     <form action="button_send">
         ...
-        <input type="button" onclick="ym(106270726, 'reachGoal', 'button_send'); return true;" value="Order" />
+        <input type="button" id="orderButton" value="Order" />
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var btn = document.getElementById('orderButton');
+                if (btn) {
+                    btn.addEventListener('click', function () {
+                        // Вызываем цель Метрики
+                        ym(106270726, 'reachGoal', 'button_send');
+                        console.log('Goal sent');
+                    });
+                }
+            });
+        </script>
     </form>
     ...
 
